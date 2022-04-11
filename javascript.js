@@ -49,30 +49,28 @@ function personPlay() {
 
 function playRound(compSelection, playerSelection) {
 
+    //select first for combinations where the computer wins
+    if ((compSelection === "rock" && playerSelection === "scissors") ||
+        (compSelection === "paper" && playerSelection === "rock") ||
+        (compSelection === "scissors" && playerSelection === "paper")) {
+            return `The computer chose ${compSelection} and you chose ${playerSelection}.\n You loose!!!`;
+        } else if (compSelection === playerSelection) {
+            return `The computer chose ${compSelection} and you chose ${playerSelection}.\n Its a tie!!!`
+        } else {
+            return `The computer chose ${compSelection} and you chose ${playerSelection}.\n You win!!!`
+        }
 
-    if (compSelection === "rock" && playerSelection === "scissors") {
-        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You Loose!`;
-    } else if (compSelection === "rock" && playerSelection === "paper") {
-        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You win!!`;
-    } else if (compSelection === "rock" && playerSelection === "rock") {
-        return `You chose ${playerSelection} and the computer chose ${compSelection}\n Its a tie!`;
-    }
-
-    if (compSelection === "paper" && playerSelection === "scissors") {
-        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You win!`;
-    } else if (compSelection === "paper" && playerSelection === "paper") {
-        return `You chose ${playerSelection} and the computer chose ${compSelection}\n Its a tie!`;
-    } else if (compSelection === "paper" && playerSelection === "rock") {
-        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You Loose!`;
-    }
-
-    if (compSelection === "scissors" && playerSelection === "scissors") {
-        return `You chose ${playerSelection} and the computer chose ${compSelection}\n Its a tie!`;
-    } else if (compSelection === "scissors" && playerSelection === "paper") {
-        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You Loose!`;
-    } else if (compSelection === "scissor" && playerSelection === "rock") {
-        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You win!`;
-    }
+    
+    
+    
+    
+    // if (compSelection === "paper" && playerSelection === "scissors") {
+    //     return `You chose ${playerSelection} and the computer chose ${compSelection}\n You win!`;
+    // } else if (compSelection === "paper" && playerSelection === "paper") {
+    //     return `You chose ${playerSelection} and the computer chose ${compSelection}\n Its a tie!`;
+    // } else if (compSelection === "paper" && playerSelection === "rock") {
+    //     return `You chose ${playerSelection} and the computer chose ${compSelection}\n You Loose!`;
+    // }
 
 }
 
