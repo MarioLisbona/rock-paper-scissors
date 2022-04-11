@@ -59,6 +59,13 @@ personPlay function
 
 
 
-run playRound function passing in two arguments computerPlay and PersonPlay
+create game function
 
-        
+create counter variable and set to 1
+invoke playRound function with two arguments - personPlay() and computerPlay()
+increment counter variable by one 
+
+do this untill 5 games have been played
+
+create randomNumber function - min and max parameters
+    create a random number using math floor and math random between the min and max(inlcusive) passed as arguments
