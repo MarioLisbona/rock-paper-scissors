@@ -1,7 +1,11 @@
+function randomNumber (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 function computerPlay() {
     //create randNum to store a random number between 1 and 3
     //create compChoice variable to hold computers choice
-    let randNum = Math.floor(Math.random() * 3) + 1;
+    let randNum = randomNumber(1, 3);
     let compChoice = "";
 
     //assign result of randNum to compChoice = rock paper or scissors
@@ -36,39 +40,11 @@ function personPlay() {
     } else if (playerChoice === "scissors") {
         return playerChoice;
     } else {
-        alert("Thats not a valid choice. Game over");
+        return "Thats not a valid choice. Game over";
     }
     
 }
 
-
-// gamePlay function - recives two parameters: compSelection playerSelection
-
-//         if computer is rock and player is scissors
-//             show computer wins message
-//         else if computer is rock and player is paper
-//             show player wins message
-//         else if computer is rock and player is rock
-//             show game is a tie message
-        
-
-//         if computer is paper and player is rock
-//             show computer wins message
-//         else if computer is paper and player is scissors
-//             show player wins message
-//         else if computer is paper and player is paper
-//             show game is a tie message
-
-//         if computer is scissors and player is paper
-//             show computer wins message
-//         else if computer is scissors and player is rock
-//             show player wins message
-//         else if computer is scissors and player is scissors
-//             show game is a tie message
-
-
-
-// run gamePlay function passing in two arguments computerPlay and PersonPlay
 
 
 function playRound(compSelection, playerSelection) {
@@ -100,4 +76,13 @@ function playRound(compSelection, playerSelection) {
 
 }
 
-alert(playRound(computerPlay(), personPlay()));
+function game() {
+    //for look to play 5 games
+    for (let i = 1; i <= 5; i++) {
+        alert(playRound(computerPlay(), personPlay()));
+    }
+    alert("Five games have been played. The end")
+}
+
+
+game();
