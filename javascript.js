@@ -21,6 +21,7 @@ function computerPlay() {
 function personPlay() {
     //create playerChoice variable to store the players choice
     let playerEntry = "";
+    let playerChoice = "";
     
     //prompt user to enter a choice: Rock, Paper or Scissors? store in playerEntry variable
     //convert playerEntry variable to all loewrcase and store in playerChoice variable
@@ -39,3 +40,64 @@ function personPlay() {
     }
     
 }
+
+
+// gamePlay function - recives two parameters: compSelection playerSelection
+
+//         if computer is rock and player is scissors
+//             show computer wins message
+//         else if computer is rock and player is paper
+//             show player wins message
+//         else if computer is rock and player is rock
+//             show game is a tie message
+        
+
+//         if computer is paper and player is rock
+//             show computer wins message
+//         else if computer is paper and player is scissors
+//             show player wins message
+//         else if computer is paper and player is paper
+//             show game is a tie message
+
+//         if computer is scissors and player is paper
+//             show computer wins message
+//         else if computer is scissors and player is rock
+//             show player wins message
+//         else if computer is scissors and player is scissors
+//             show game is a tie message
+
+
+
+// run gamePlay function passing in two arguments computerPlay and PersonPlay
+
+
+function gamePlay(compSelection, playerSelection) {
+
+
+    if (compSelection === "rock" && playerSelection === "scissors") {
+        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You Loose!`;
+    } else if (compSelection === "rock" && playerSelection === "paper") {
+        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You win!!`;
+    } else if (compSelection === "rock" && playerSelection === "rock") {
+        return `You chose ${playerSelection} and the computer chose ${compSelection}\n Its a tie!`;
+    }
+
+    if (compSelection === "paper" && playerSelection === "scissors") {
+        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You win!`;
+    } else if (compSelection === "paper" && playerSelection === "paper") {
+        return `You chose ${playerSelection} and the computer chose ${compSelection}\n Its a tie!`;
+    } else if (compSelection === "paper" && playerSelection === "rock") {
+        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You Loose!`;
+    }
+
+    if (compSelection === "scissors" && playerSelection === "scissors") {
+        return `You chose ${playerSelection} and the computer chose ${compSelection}\n Its a tie!`;
+    } else if (compSelection === "scissors" && playerSelection === "paper") {
+        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You Loose!`;
+    } else if (compSelection === "scissor" && playerSelection === "rock") {
+        return `You chose ${playerSelection} and the computer chose ${compSelection}\n You win!`;
+    }
+
+}
+
+alert(gamePlay(computerPlay(), personPlay()));
