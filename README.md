@@ -32,7 +32,7 @@ personPlay function
     return playerChoice
 
 
-    gamePlay function - recives two parameters: compSelection playerSelection
+    playRound function - recives two parameters: compSelection playerSelection
 
 
         if computer is rock and player is scissors
@@ -59,6 +59,6 @@ personPlay function
 
 
 
-run gamePlay function passing in two arguments computerPlay and PersonPlay
+run playRound function passing in two arguments computerPlay and PersonPlay
 
         
