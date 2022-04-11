@@ -71,7 +71,7 @@ function personPlay() {
 // run gamePlay function passing in two arguments computerPlay and PersonPlay
 
 
-function gamePlay(compSelection, playerSelection) {
+function playRound(compSelection, playerSelection) {
 
 
     if (compSelection === "rock" && playerSelection === "scissors") {
@@ -100,4 +100,4 @@ function gamePlay(compSelection, playerSelection) {
 
 }
 
-alert(gamePlay(computerPlay(), personPlay()));
+alert(playRound(computerPlay(), personPlay()));
