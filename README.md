@@ -34,6 +34,7 @@ personPlay function
 
     gamePlay function - recives two parameters: compSelection playerSelection
 
+
         if computer is rock and player is scissors
             show computer wins message
         else if computer is rock and player is paper
