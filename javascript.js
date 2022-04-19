@@ -45,31 +45,29 @@ function playRound(compSelection, playerSelection) {
     const para = document.querySelector('#winner');
     const score = document.querySelector('#score');
 
-    //select first for combinations where the computer wins
-    if ((compSelection === "rock" && playerSelection === "scissors") ||
-        (compSelection === "paper" && playerSelection === "rock") ||
-        (compSelection === "scissors" && playerSelection === "paper")) {
-           para.textContent = 'You loose!';
-           compScore += 1;
-           score.textContent = `player: ${playerScore} | Computer: ${compScore}`
-        } else if (compSelection === playerSelection) {
-            para.textContent = 'Its a tie!';
+    
+    if (compScore < 5 && playerScore < 5) {
+        //select first for combinations where the computer wins
+        if ((compSelection === "rock" && playerSelection === "scissors") ||
+            (compSelection === "paper" && playerSelection === "rock") ||
+            (compSelection === "scissors" && playerSelection === "paper")) {
+                // para.textContent = 'You loose!';
+                compScore += 1;
             score.textContent = `player: ${playerScore} | Computer: ${compScore}`
-        } else {
-            para.textContent = 'You win!';
-            playerScore += 1;
-            score.textContent = `player: ${playerScore} | Computer: ${compScore}`
-        }
-}
-
-function game() {
-    //for look to play 5 games
-    // for (let i = 1; i <= 5; i++) {
-    //     alert(playRound(computerPlay(), personPlay()));
-    // }
-    // alert("Five games have been played. The end")
-
-    playRound(computerPlay(), personPlay());
+            } else if (compSelection === playerSelection) {
+                // para.textContent = 'Its a tie!';
+                score.textContent = `player: ${playerScore} | Computer: ${compScore}`
+            } else {
+                // para.textContent = 'You win!';
+                playerScore += 1;
+                score.textContent = `player: ${playerScore} | Computer: ${compScore}`
+            }
+    } else {
+        alert("game over");
+    }
+    console.log(compScore, playerScore);
+    
+    
 }
 
 
