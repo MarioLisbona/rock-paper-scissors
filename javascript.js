@@ -1,3 +1,4 @@
+
 function randomNumber (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
@@ -22,17 +23,18 @@ function computerPlay() {
 }
 
 
-function personPlay() {
-    //create playerChoice variable to store the players choice
-    let playerEntry = "";
-    let playerChoice = "";
+function personPlay(choice) {
+    // create playerChoice variable to store the players choice
+    let playerChoice = choice;
+    console.log(choice);
     
     //prompt user to enter a choice: Rock, Paper or Scissors? store in playerEntry variable
     //convert playerEntry variable to all loewrcase and store in playerChoice variable
-    playerEntry = prompt("Please enter a choice: Rock, Paper or Scissors");
-    playerChoice = playerEntry.toLowerCase();
+    
+
+    
    
-    //checking that playerChoice is either rock paper or scissors. if its not exit the game with error message
+    // checking that playerChoice is either rock paper or scissors. if its not exit the game with error message
     if (playerChoice === "rock") {
         return playerChoice;
     } else if (playerChoice === "paper") {
@@ -76,10 +78,34 @@ function playRound(compSelection, playerSelection) {
 
 function game() {
     //for look to play 5 games
-    for (let i = 1; i <= 5; i++) {
-        alert(playRound(computerPlay(), personPlay()));
-    }
-    alert("Five games have been played. The end")
+    // for (let i = 1; i <= 5; i++) {
+    //     alert(playRound(computerPlay(), personPlay()));
+    // }
+    // alert("Five games have been played. The end")
+
+    playRound(computerPlay(), personPlay());
 }
 
+// const paper = document.getElementById('btnPaper');
+// const scissors = document.getElementById('btnScissors');
+// const rock = document.getElementById('btnRock');
+// paper.addEventListener('click', console.log("paper"));
+// scissors.addEventListener('click', console.log("scissors"));
+// rock.addEventListener('click', console.log("rock"));
 
+
+const paper = document.getElementById('btnPaper')
+const scissors = document.getElementById('btnScissors')
+const rock = document.getElementById('btnRock')
+
+paper.addEventListener('click', () => {
+    playRound(computerPlay(), personPlay('paper'))
+})
+
+scissors.addEventListener('click', () => {
+    playRound(computerPlay(), personPlay('scissors'))
+})
+
+rock.addEventListener('click', e => {
+    playRound(computerPlay(), personPlay('rock'))
+})
