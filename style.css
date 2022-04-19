@@ -3,14 +3,15 @@
 } */
 
 html {
-    font-size: 20px;
+    font-size: 25px;
     color: white;
     background: url('./img/background.jpg');
     background-size: cover;
 }
 
 button {
-    border-radius: 4px;
+    border-radius: 8px;
+    padding: 0px 25px 0px 25px;
 }
 
 .gameplay {
@@ -36,6 +37,15 @@ h2 {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 25px;
+}
+
+.player {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 15px;
 }
 
 .container {
@@ -56,7 +66,13 @@ h2 {
     background: rgb(58,52,52, 0.75);
   }
 
-  .game:hover {
-      opacity: 0.5; 
+  .winner {
+      margin: 0px 250px 0px 0px;
+  }
+
+  .playagin {
+      display: flex;
+      flex: 0;
+      margin-left: -100px;
   }
   
