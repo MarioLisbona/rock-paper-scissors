@@ -60,12 +60,11 @@ function playRound(compSelection, playerSelection) {
                 score.textContent = `player: ${playerScore} | Computer: ${compScore}`;
             }
     }
+    console.log("playRound", compScore, playerScore);
 
     if (playerScore == 5 || compScore == 5) {
         endGame();
         (playerScore == 5) ? winner.textContent = "You win, Computer looses!" : winner.textContent = "You loose, Computer wins!"
-        
-        
     }
   
 }
@@ -85,12 +84,13 @@ function resetGame () {
     player.textContent = "";
     computer.textContent = "";
     score.textContent = "";
-    winner.textContent = "";
+    winner.textContent = "";    
     paper.disabled = false;
     scissors.disabled = false;
     rock.disabled = false;
-    let compScore = 0;
-    let playerScore = 0;
+    compScore = 0;
+    playerScore = 0;
+    console.log("resetGame()", compScore, playerScore);
 }
 
 
