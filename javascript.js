@@ -42,7 +42,7 @@ function personPlay(choice) {
 
 function playRound(compSelection, playerSelection) {
 
-    const para = document.querySelector('#winner');
+    const winner = document.querySelector('#winner');
     const score = document.querySelector('#score');
 
     
@@ -51,23 +51,46 @@ function playRound(compSelection, playerSelection) {
         if ((compSelection === "rock" && playerSelection === "scissors") ||
             (compSelection === "paper" && playerSelection === "rock") ||
             (compSelection === "scissors" && playerSelection === "paper")) {
-                // para.textContent = 'You loose!';
                 compScore += 1;
-            score.textContent = `player: ${playerScore} | Computer: ${compScore}`
+            score.textContent = `player: ${playerScore} | Computer: ${compScore}`;
             } else if (compSelection === playerSelection) {
-                // para.textContent = 'Its a tie!';
-                score.textContent = `player: ${playerScore} | Computer: ${compScore}`
+                score.textContent = `player: ${playerScore} | Computer: ${compScore}`;
             } else {
-                // para.textContent = 'You win!';
                 playerScore += 1;
-                score.textContent = `player: ${playerScore} | Computer: ${compScore}`
+                score.textContent = `player: ${playerScore} | Computer: ${compScore}`;
             }
-    } else {
-        alert("game over");
     }
-    console.log(compScore, playerScore);
-    
-    
+
+    if (playerScore == 5 || compScore == 5) {
+        endGame();
+        (playerScore == 5) ? winner.textContent = "You win, Computer looses!" : winner.textContent = "You loose, Computer wins!"
+        
+        
+    }
+  
+}
+
+function endGame () {
+    paper.disabled = true;
+    scissors.disabled = true;
+    rock.disabled = true;
+}
+
+function resetGame () {
+    player = document.querySelector('#rpsPlayer');
+    computer = document.querySelector('#rpsComputer');
+    score = document.querySelector('#score');
+    winner = document.querySelector('#winner');
+
+    player.textContent = "";
+    computer.textContent = "";
+    score.textContent = "";
+    winner.textContent = "";
+    paper.disabled = false;
+    scissors.disabled = false;
+    rock.disabled = false;
+    let compScore = 0;
+    let playerScore = 0;
 }
 
 
@@ -81,12 +104,16 @@ let playerScore = 0;
 
 paper.addEventListener('click', () => {
     playRound(computerPlay(), personPlay('paper'))
-})
+});
 
 scissors.addEventListener('click', () => {
     playRound(computerPlay(), personPlay('scissors'))
-})
+});
 
 rock.addEventListener('click', () => {
     playRound(computerPlay(), personPlay('rock'))
-})
+});
+
+playAgain.addEventListener('click', () => {
+    resetGame()
+});
