@@ -1,79 +1,65 @@
-
 function randomNumber (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function computerPlay() {
-    //create randNum to store a random number between 1 and 3
-    //create compChoice variable to hold computers choice
     let randNum = randomNumber(1, 3);
-    let compChoice = "";
+    const para = document.querySelector('#rpsComputer');
+
 
     //assign result of randNum to compChoice = rock paper or scissors
     if (randNum === 1) {
-        compChoice = "rock";
+        para.textContent = "Computer chose Rock";
+        return "rock";
     } else if (randNum === 2) {
-        compChoice = "paper";
+        para.textContent = "Computer chose Paper";
+        return "paper";
     } else if (randNum === 3) {
-        compChoice = "scissors";
+        para.textContent = "Computer chose Scissors";
+        return "scissors";
     }
-
-    //return compChoice value
-    return compChoice
 }
 
 
 function personPlay(choice) {
     // create playerChoice variable to store the players choice
     let playerChoice = choice;
-    console.log(choice);
-    
-    //prompt user to enter a choice: Rock, Paper or Scissors? store in playerEntry variable
-    //convert playerEntry variable to all loewrcase and store in playerChoice variable
-    
 
-    
-   
-    // checking that playerChoice is either rock paper or scissors. if its not exit the game with error message
+    const para = document.querySelector('#rpsPlayer');
+
     if (playerChoice === "rock") {
-        return playerChoice;
+        para.innerText = "You chose: Rock";
+        return choice;
     } else if (playerChoice === "paper") {
-        return playerChoice;
-    } else if (playerChoice === "scissors") {
-        return playerChoice;
+        para.innerText = "You chose: Paper";
+        return choice;
     } else {
-        return "Thats not a valid choice. Game over";
+        para.innerText = "You chose: Scissors";
+        return choice;
     }
-    
 }
-
-
+    
 
 function playRound(compSelection, playerSelection) {
+
+    const para = document.querySelector('#winner');
+    const score = document.querySelector('#score');
 
     //select first for combinations where the computer wins
     if ((compSelection === "rock" && playerSelection === "scissors") ||
         (compSelection === "paper" && playerSelection === "rock") ||
         (compSelection === "scissors" && playerSelection === "paper")) {
-            return `The computer chose ${compSelection} and you chose ${playerSelection}.\n You loose!!!`;
+           para.textContent = 'You loose!';
+           compScore += 1;
+           score.textContent = `player: ${playerScore} | Computer: ${compScore}`
         } else if (compSelection === playerSelection) {
-            return `The computer chose ${compSelection} and you chose ${playerSelection}.\n Its a tie!!!`
+            para.textContent = 'Its a tie!';
+            score.textContent = `player: ${playerScore} | Computer: ${compScore}`
         } else {
-            return `The computer chose ${compSelection} and you chose ${playerSelection}.\n You win!!!`
+            para.textContent = 'You win!';
+            playerScore += 1;
+            score.textContent = `player: ${playerScore} | Computer: ${compScore}`
         }
-
-    
-    
-    
-    
-    // if (compSelection === "paper" && playerSelection === "scissors") {
-    //     return `You chose ${playerSelection} and the computer chose ${compSelection}\n You win!`;
-    // } else if (compSelection === "paper" && playerSelection === "paper") {
-    //     return `You chose ${playerSelection} and the computer chose ${compSelection}\n Its a tie!`;
-    // } else if (compSelection === "paper" && playerSelection === "rock") {
-    //     return `You chose ${playerSelection} and the computer chose ${compSelection}\n You Loose!`;
-    // }
-
 }
 
 function game() {
@@ -86,17 +72,14 @@ function game() {
     playRound(computerPlay(), personPlay());
 }
 
-// const paper = document.getElementById('btnPaper');
-// const scissors = document.getElementById('btnScissors');
-// const rock = document.getElementById('btnRock');
-// paper.addEventListener('click', console.log("paper"));
-// scissors.addEventListener('click', console.log("scissors"));
-// rock.addEventListener('click', console.log("rock"));
-
 
 const paper = document.getElementById('btnPaper')
 const scissors = document.getElementById('btnScissors')
 const rock = document.getElementById('btnRock')
+const playAgain = document.getElementById('reset');
+
+let compScore = 0;
+let playerScore = 0;
 
 paper.addEventListener('click', () => {
     playRound(computerPlay(), personPlay('paper'))
@@ -106,6 +89,6 @@ scissors.addEventListener('click', () => {
     playRound(computerPlay(), personPlay('scissors'))
 })
 
-rock.addEventListener('click', e => {
+rock.addEventListener('click', () => {
     playRound(computerPlay(), personPlay('rock'))
 })
