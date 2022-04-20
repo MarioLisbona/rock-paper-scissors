@@ -12,13 +12,13 @@ function computerPlay() {
 
     //assign result of randNum to rock paper or scissors and display in rpsComputer <p>
     if (randNum === 1) {
-        para.textContent = "Computer chose Rock";
+        para.textContent = "Computer chose: Rock";
         return "rock";
     } else if (randNum === 2) {
-        para.textContent = "Computer chose Paper";
+        para.textContent = "Computer chose: Paper";
         return "paper";
     } else if (randNum === 3) {
-        para.textContent = "Computer chose Scissors";
+        para.textContent = "Computer chose: Scissors";
         return "scissors";
     }
 }
