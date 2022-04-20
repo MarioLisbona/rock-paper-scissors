@@ -7,7 +7,7 @@ function computerPlay() {
     //use randomNumber to randomly choose between 1 - 3 and assign to rock, papper or scissors
     let randNum = randomNumber(1, 3);
     //create variable to manipulate <p> to display computer choice
-    const para = document.querySelector('#rpsComputer');
+    const para = document.querySelector('#comp-choice');
 
 
     //assign result of randNum to rock paper or scissors and display in rpsComputer <p>
@@ -28,7 +28,7 @@ function personPlay(choice) {
     // create playerChoice variable to store the players choice
     let playerChoice = choice;
     //create variable to manipulate <p> to display computer choice
-    const para = document.querySelector('#rpsPlayer');
+    const para = document.querySelector('#player-choice');
 
     //display rock, paper or scissors in rpsPlayer <p>
     if (playerChoice === "rock") {
@@ -47,7 +47,7 @@ function personPlay(choice) {
 function playRound(compSelection, playerSelection) {
     //create variable to manipulate winner and score <p>
     const winner = document.querySelector('#winner');
-    const score = document.querySelector('#score');
+    const score = document.querySelector('#running-score');
 
     //only choose a winner for 5 games
     //increment playerScore or compScore depending on who wins. 
@@ -86,9 +86,9 @@ function endGame () {
 
 //function to reset the game
 function resetGame () {
-    player = document.querySelector('#rpsPlayer');
-    computer = document.querySelector('#rpsComputer');
-    score = document.querySelector('#score');
+    player = document.querySelector('#player-choice');
+    computer = document.querySelector('#comp-choice');
+    score = document.querySelector('#running-score');
     winner = document.querySelector('#winner');
 
     player.textContent = "";
@@ -115,23 +115,27 @@ let playerScore = 0;
 //event listener for paper button.
 //calls playRound with 'paper' argument passed to personPlay function
 paper.addEventListener('click', () => {
+    console.log("chooseing paper event listen")
     playRound(computerPlay(), personPlay('paper'))
 });
 
 //event listener for scissors button.
 //calls playRound with 'scissors' argument passed to personPlay function
 scissors.addEventListener('click', () => {
+    console.log("chooseing scissors event listen")
     playRound(computerPlay(), personPlay('scissors'))
 });
 
 //event listener for rock button.
 //calls playRound with 'rock' argument passed to personPlay function
 rock.addEventListener('click', () => {
+    console.log("chooseing rock event listen")
     playRound(computerPlay(), personPlay('rock'))
 });
 
 //event listener for Play again button.
 //calls reset function
 playAgain.addEventListener('click', () => {
+    console.log("chooseing reset event listen")
     resetGame()
 });
