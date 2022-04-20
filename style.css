@@ -94,9 +94,10 @@ button {
   }
 
   .score {
-      align-items: center;
-      margin-right: 120px;
-      padding-top: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-right: 20px;
       margin-left: 150px;
   }
 
