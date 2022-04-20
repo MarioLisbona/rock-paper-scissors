@@ -6,9 +6,6 @@ function randomNumber (min, max) {
 function computerPlay() {
     //use randomNumber to randomly choose between 1 - 3 and assign to rock, papper or scissors
     let randNum = randomNumber(1, 3);
-    //create variable to manipulate <p> to display computer choice
-    const para = document.querySelector('#comp-choice');
-
 
     //assign result of randNum to rock paper or scissors and display in rpsComputer <p>
     if (randNum === 1) {
@@ -110,12 +107,15 @@ const playAgain = document.querySelector('#reset');
 let compScore = 0;
 let playerScore = 0;
 
+const para = document.querySelector('#comp-choice');
+
 
 
 //event listener for paper button.
 //calls playRound with 'paper' argument passed to personPlay function
 paper.addEventListener('click', () => {
-    playRound(computerPlay(), personPlay('paper'))
+    playRound(setTimeout("computerPlay()", 1000), personPlay('paper'))
+    para.textContent = "....thinking"
 });
 //eventListeners to create animations
 paper.addEventListener('mouseenter', () => {
@@ -135,7 +135,8 @@ paper.addEventListener('mouseup', () => {
 //event listener for scissors button.
 //calls playRound with 'scissors' argument passed to personPlay function
 scissors.addEventListener('click', () => {
-    playRound(computerPlay(), personPlay('scissors'))
+    playRound(setTimeout("computerPlay()", 1000), personPlay('scissors'))
+    para.textContent = "....thinking"
 });
 //eventListeners to create animations
 scissors.addEventListener('mouseenter', () => {
@@ -154,7 +155,8 @@ scissors.addEventListener('mouseup', () => {
 //event listener for rock button.
 //calls playRound with 'rock' argument passed to personPlay function
 rock.addEventListener('click', () => {
-    playRound(computerPlay(), personPlay('rock'))
+    playRound(setTimeout("computerPlay()", 1000), personPlay('rock'))
+    para.textContent = "....thinking"
 });
 //eventListeners to create animations
 rock.addEventListener('mouseenter', () => {
