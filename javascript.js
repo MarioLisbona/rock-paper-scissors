@@ -114,8 +114,7 @@ const para = document.querySelector('#comp-choice');
 //event listener for paper button.
 //calls playRound with 'paper' argument passed to personPlay function
 paper.addEventListener('click', () => {
-    playRound(setTimeout("computerPlay()", 1000), personPlay('paper'))
-    para.textContent = "....thinking"
+    playRound(computerPlay(), personPlay('paper'))
 });
 //eventListeners to create animations
 paper.addEventListener('mouseenter', () => {
@@ -135,8 +134,7 @@ paper.addEventListener('mouseup', () => {
 //event listener for scissors button.
 //calls playRound with 'scissors' argument passed to personPlay function
 scissors.addEventListener('click', () => {
-    playRound(setTimeout("computerPlay()", 1000), personPlay('scissors'))
-    para.textContent = "....thinking"
+    playRound(computerPlay(), personPlay('scissors'))
 });
 //eventListeners to create animations
 scissors.addEventListener('mouseenter', () => {
@@ -155,7 +153,7 @@ scissors.addEventListener('mouseup', () => {
 //event listener for rock button.
 //calls playRound with 'rock' argument passed to personPlay function
 rock.addEventListener('click', () => {
-    playRound(setTimeout("computerPlay()", 1000), personPlay('rock'))
+    playRound(computerPlay(), personPlay('rock'))
     para.textContent = "....thinking"
 });
 //eventListeners to create animations
