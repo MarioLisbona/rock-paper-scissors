@@ -154,7 +154,6 @@ scissors.addEventListener('mouseup', () => {
 //calls playRound with 'rock' argument passed to personPlay function
 rock.addEventListener('click', () => {
     playRound(computerPlay(), personPlay('rock'))
-    para.textContent = "....thinking"
 });
 //eventListeners to create animations
 rock.addEventListener('mouseenter', () => {
