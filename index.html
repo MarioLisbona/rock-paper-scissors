@@ -9,41 +9,58 @@
     <script src="./javascript.js" defer></script>
 </head>
 <body>
-    <div class="gameplay">
+    <div class="container">
         <div class="header">
-            <h1>GAME ON! Test your skills against the computer</h1>
-            <h2>Best out of 5 wins</h2>
+            <div class="h1">
+                <h1>GAME ON! Test your skills against the computer</h1>
+            </div>
+            <div class="'h2">
+                <h2>Best out of 5 wins</h2>
+            </div>
         </div>
-        <div class="container">
-                <div class="game paper">
+        <div class="game">
+            <div class="paper">
+                <div class="paper-title">
                     <p>PAPER</p>
-                    <button id="btnPaper">Select Paper</button>
                 </div>
-                <div class="game scissors">
+                <div class="paper-btn">
+                    <button id="btnPaper">Choose Paper</button>
+                </div>
+            </div>
+            <div class="scissors">
+                <div class="scissors-title">
                     <p>SCISSORS</p>
-                    <button id="btnScissors">Select Scissors</button>
                 </div>
-                <div class="game rock">
+                <div class="scissors-btn">
+                    <button id="btnScissors">Choose Scissors</button>
+                </div>
+            </div>
+            <div class="rock">
+                <div class="rock-title">
                     <p>ROCK</p>
-                    <button id="btnRock">Select Rock</button>
                 </div>
+                <div class="rock-btn">
+                    <button id="btnRock">Choose Rock</button>
+                </div>
+            </div>
         </div>
-        <div class="result">
-            <div class="player">
-                <p id="rpsPlayer"></p>
-                <p id="rpsComputer"></p>
+        <div class="footer">
+            <div class="choice">
+                <div class="player-choice">
+                    <p id="player-choice">You chose ROCK</p>
+                </div>
+                <div class="comp-choice">
+                    <p id="comp-choice">Computer chose Scissors</p>
+                </div>
             </div>
-            <div id="score">
-                <p id="score"></p>
-            </div>
-            <div class="winner">
-                <p id='winner'></p>
+            <div class="score">
+                <p id="running-score"> You: 4 | Computer: 3</p>
+                <p id="winner">You won</p>
             </div>
             <div class="play-again">
-                <button id="reset">Play again</button>
+                <button id="play-again">Play another Game</button>
             </div>
         </div>
     </div>
-    
 </body>
 </html>
