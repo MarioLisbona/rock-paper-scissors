@@ -1,202 +1,162 @@
-/* * {
-    border: 1px solid white;
-} */
-
-html {
+* {
     font-size: 25px;
-    color: #E9EAEE;
-    background: url('./img/background.jpg');
-    /* opacity: 0.95; */
-    background-size: cover;
-}
+    color: white;
+    /* outline: 1px solid white; */
+  }
 
-.container {
-    height: 85vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
+  html {
+    background: url('./img/background.jpg');
+    background-size: cover;
+  }
+
+.grid-container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: minmax(900px, auto);
+    grid-gap: 10px;
+
 }
 
 .header {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    margin: 2rem 0rem 4rem 0rem;
 }
 
-.h1, .h2 {
+.header .title {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-items: start    ;
+    
 }
 
-button {
-    border-radius: 8px;
-    /* padding: 0px 25px 0px 25px; */
-}
-
-#reset {
-    background: #83715B;
-    font-size: 1rem;
-    border-radius: 8px;
-    padding: 0.25rem 0.25rem 0.25rem 0.25rem;
-
+.header .sub-header {
+    
 }
 
 .game {
     display: flex;
-    justify-content: space-around;
-    align-items: stretch;
-}
-
-.footer {
-    display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    gap: 17 rem;
-    margin: 2rem 0rem -2rem 0rem;
 }
 
-.paper, .rock, .scissors {
+.paper,
+.scissors,
+.rock {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* min-height: 6rem;
+    min-width: 6rem; */
+    height: 250px;
+    width: 150px;
+    justify-content: center;
     align-items: center;
-    width: 7rem;
-    height: 7rem;
-    border: 4px solid #554C4C;
     border-radius: 12px;
-    background-color: rgb(59,53, 53, 0.5);
-  }
+    gap: 20px;
 
-  .rollOver {
+}
+
+.paper .title strong,
+.rock .title strong,
+.scissors .title strong {
+    font-size: 2rem;
+    color: #1B1B1B;
+}
+
+#paper {
+    max-width: 150px;
+    height: auto;
+}
+
+#scissors {
+    max-width: 200px;
+    height: auto;
+}
+
+#rock {
+    max-width: 200px;
+    height: auto;
+}
+
+#scissors {
+    max-width: 100px;
+    height: auto;
+}
+
+#rock {
+    max-width: 100px;
+    height: auto;
+}
+
+.rollOver {
     transform: scale(1.2);
     border-color: #83715B;
-    box-shadow: 0 0 1rem #83715B;
+    box-shadow: 0 0 2rem #83715B;
   }
 
   .click {
     transform: scale(1.05);
     border-color: #83715B;
-    box-shadow: 0 0 1rem #83715B;
+    box-shadow: 0 0 2rem #83715B;
   }
 
-
-  .choice, .score, .play-again {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      min-width: 260px;
-      min-height: 160px;
-  }
-
-  .score {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      margin-right: 20px;
-      margin-left: 150px;
-  }
-
-  .play-again {
-      align-items: center;
-      justify-content: center;
-      padding-right: 50px;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* button {
-    border-radius: 8px;
-    padding: 0px 25px 0px 25px;
-}
-
-.container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
-}
-
-.header {
+.score {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
-h2 {
-    margin: 0 0 75px 0;
+.footer-container {
+    font-size: .75rem;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 0.5fr);
+    grid-template-areas:
+    "player player-choice score-winner score-winner play-again"
+    "computer computer-choice player-score computer-score play-again"
 }
 
-.result {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 25px;
+.footer .player {
+    grid-area: player;
 }
 
-.choice {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-start;
-    gap: 15px;
+.footer .player-choice {
+    grid-area: player-choice;
+ 
 }
 
-.game {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.footer .score-winner {
+    grid-area: score-winner;
+    justify-self: start;
 }
 
-.paper, .rock, .scissors {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 7rem;
-    height: 7rem;
-    border: 4px solid #554C4C;
-    border-radius: 12px;
-    background: rgb(58,52,52, 0.75);
-  }
+.footer .reset {
+    grid-area: play-again;
+    justify-self: center;
+    align-self: center;
 
-  .winner {
-      margin: 0px 250px 0px 0px;
-  }
+}
 
-  .playagin {
-      display: block;
-      flex: 0;
-      margin-left: -100px;
-  } */
-  
+.footer .computer {
+    grid-area: computer;
+}
+
+.footer .computer-choice {
+    grid-area: computer-choice;
+}
+
+.footer .player-score {
+    grid-area: player-score;
+}
+
+.footer .computer-score {
+    grid-area: computer-score;
+}
+
+.grid-result {
+    display: grid;
+    grid-template-columns: 0.1fr 0.1fr 1fr 1fr;
+
+}
