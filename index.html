@@ -4,57 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Scissors Paper - UI</title>
     <link rel="stylesheet" href="./style.css">
     <script src="./javascript.js" defer></script>
+    <title>Rock-Paper-Scissors: done with grid</title>
 </head>
 <body>
-    <div class="container">
+    <div class="grid-container">
         <div class="header">
-            <div class="h1">
-                <h1>GAME ON! Test your skills against the computer</h1>
-            </div>
-            <div class="'h2">
-                <h2>Best out of 5 wins</h2>
-            </div>
+            <div class="header title"><h1>Rock - Paper - Scissors</h1></div>
+            <div class="header sub-header"><h2>Challenge the computer. Best out of 5 wins</h2></div>
         </div>
         <div class="game">
             <div class="paper">
-                <div class="paper-title">
-                    <p>PAPER</p>
+                <div class="paper title"><strong>Paper</strong></div>
+                <div class="paper image">
+                    <img id="paper" src="./img/paper_ccexpress.png">
                 </div>
             </div>
             <div class="scissors">
-                <div class="scissors-title">
-                    <p>SCISSORS</p>
+                <div class="scissors title"><strong>Scissors</strong></div>
+                <div class="scissors image">
+                    <img id="scissors" src="./img/scissors_ccexpress.png">
                 </div>
             </div>
             <div class="rock">
-                <div class="rock-title">
-                    <p>ROCK</p>
+                <div class="rock title"><strong>Rock</strong></div>
+                <div class="rock image">
+                    <img id="rock" src="./img/rock_ccexpress.png">
                 </div>
+            </div>
             </div>
         </div>
         <div class="footer">
-            <div class="choice">
-                <div class="player-choice">
-                    <p id="player-choice"></p>
+            <div class="footer-container">
+                <div class="footer player">
+                    <div>You Chose</div>
                 </div>
-                <div class="comp-choice">
-                    <p id="comp-choice"></p>
+                <div class="footer computer">
+                    <div>Computer Chose</div>
+                </div>
+                <div class="footer player-choice">
+                    <div></div>
+                </div>
+                <div class="footer computer-choice">
+                    <div></div>
+                </div>
+                <div class="footer score-winner">
+                    <div></div>
+                </div>
+                <div class="footer player-score">
+                    <div></div>
+                </div>
+                <div class="footer computer-score">
+                    <div>   </div>
+                </div>
+                <div class="footer reset">
+                    <div>Play another game</div>
                 </div>
             </div>
-            <div class="score">
-                <div class="winner">
-                    <p id="winner"></p>
-                </div>
-                <div class="running-score">
-                    <p id="running-score"></p>
-                </div>
-            </div>
-            <div class="play-again">
-                <div id="reset">Play another game</div>
-            </div>
+
         </div>
     </div>
 </body>
