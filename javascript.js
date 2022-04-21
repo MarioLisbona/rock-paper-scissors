@@ -6,45 +6,45 @@ function randomNumber (min, max) {
 function computerPlay() {
     //use randomNumber to randomly choose between 1 - 3 and assign to rock, papper or scissors
     let randNum = randomNumber(1, 3);
+    let compChoice = document.querySelector('.footer .computer-choice div')
 
-    //assign result of randNum to rock paper or scissors and display in rpsComputer <p>
+    //assign result of randNum to rock paper or scissors and display in compChoice
     if (randNum === 1) {
-        para.textContent = "Computer chose: Rock";
+        compChoice.textContent = "Rock";
         return "rock";
     } else if (randNum === 2) {
-        para.textContent = "Computer chose: Paper";
+        compChoice.textContent = "Paper";
         return "paper";
     } else if (randNum === 3) {
-        para.textContent = "Computer chose: Scissors";
+        compChoice.textContent = "Scissors";
         return "scissors";
     }
 }
 
 
 function personPlay(choice) {
-    // create playerChoice variable to store the players choice
-    let playerChoice = choice;
-    //create variable to manipulate <p> to display computer choice
-    const para = document.querySelector('#player-choice');
+    //create variable to manipulate and display computer choice
+    const playerText = document.querySelector('.footer .player-choice div');
 
     //display rock, paper or scissors in rpsPlayer <p>
-    if (playerChoice === "rock") {
-        para.innerText = "You chose: Rock";
+    if (choice === "rock") {
+        playerText.innerText = "Rock";
         return choice;
-    } else if (playerChoice === "paper") {
-        para.innerText = "You chose: Paper";
+    } else if (choice === "paper") {
+        playerText.innerText = "Paper";
         return choice;
     } else {
-        para.innerText = "You chose: Scissors";
+        playerText.innerText = "Scissors";
         return choice;
     }
 }
     
 
 function playRound(compSelection, playerSelection) {
-    //create variable to manipulate winner and score <p>
-    const winner = document.querySelector('#winner');
-    const score = document.querySelector('#running-score');
+    //create variable to manipulate winner and score <div>
+    const player = document.querySelector('.footer .player-score div');
+    const computer = document.querySelector('.footer .computer-score div');
+    const winner = document.querySelector('.footer .score-winner div');
 
     //only choose a winner for 5 games
     //increment playerScore or compScore depending on who wins. 
@@ -55,12 +55,15 @@ function playRound(compSelection, playerSelection) {
             (compSelection === "paper" && playerSelection === "rock") ||
             (compSelection === "scissors" && playerSelection === "paper")) {
                 compScore += 1;
-            score.textContent = `player: ${playerScore} | Computer: ${compScore}`;
+            player.textContent = `player: ${playerScore}`;
+            computer.textContent = `Computer: ${compScore}`;
             } else if (compSelection === playerSelection) {
-                score.textContent = `player: ${playerScore} | Computer: ${compScore}`;
+                player.textContent = `player: ${playerScore}`;
+                computer.textContent = `Computer: ${compScore}`;
             } else {
                 playerScore += 1;
-                score.textContent = `player: ${playerScore} | Computer: ${compScore}`;
+                player.textContent = `player: ${playerScore}`;
+                computer.textContent = `Computer: ${compScore}`;
             }
     }
     //if either player or computer reach a score of 5
@@ -68,7 +71,8 @@ function playRound(compSelection, playerSelection) {
     //display winner
     if (playerScore == 5 || compScore == 5) {
         endGame();
-        (playerScore == 5) ? winner.textContent = "You win, Computer looses!" : winner.textContent = "You loose, Computer wins!"
+        (playerScore == 5) ? winner.textContent = "You win, Computer looses!" : 
+        winner.textContent = "You loose, Computer wins!"
     }
   
 }
@@ -79,18 +83,23 @@ function endGame () {
     paper.style.pointerEvents = 'none';
     scissors.style.pointerEvents = 'none';
     rock.style.pointerEvents = 'none';
+    playAgain.focus();
+
 }
 
 //function to reset the game
 function resetGame () {
-    player = document.querySelector('#player-choice');
-    computer = document.querySelector('#comp-choice');
-    score = document.querySelector('#running-score');
-    winner = document.querySelector('#winner');
+    playerChoice = document.querySelector('.footer .player-choice div');
+    computerChoice = document.querySelector('.footer .computer-choice div');
+    const playerDisplay = document.querySelector('.footer .player-score div');
+    const computerDisplay = document.querySelector('.footer .computer-score div');
+    winner = document.querySelector('.footer .score-winner div');
+    
 
-    player.textContent = "";
-    computer.textContent = "";
-    score.textContent = "";
+    playerChoice.textContent = "";
+    computerChoice.textContent = "";
+    playerDisplay.textContent = "";
+    computerDisplay.textContent = "";
     winner.textContent = "";    
     paper.style.pointerEvents = 'auto';
     scissors.style.pointerEvents = 'auto';
@@ -100,14 +109,14 @@ function resetGame () {
 }
 
 //variables to maniuplate buttons and reset button
-const paper = document.querySelector('.paper');
-const scissors = document.querySelector('.scissors');
-const rock = document.querySelector('.rock');
-const playAgain = document.querySelector('#reset');
+const paper = document.querySelector('.paper .image');
+const scissors = document.querySelector('.scissors .image');
+const rock = document.querySelector('.rock .image');
+const playAgain = document.querySelector('.footer .reset');
 let compScore = 0;
 let playerScore = 0;
 
-const para = document.querySelector('#comp-choice');
+// const para = document.querySelector('#comp-choice');
 
 
 
